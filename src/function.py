@@ -1,10 +1,4 @@
-
-
-def main():
-    ask_user_input()
-    global result
-    result = calculate(operand1, operator, operand2)
-    display_result(operand1, operator, operand2, result)
+from main import main
 
 def ask_user_input():
 
@@ -48,9 +42,7 @@ def calculate(ope1, oper, ope2):
     return res
 
 def display_result(ope1, oper, ope2, res):
-    print(f"{ope1}' '{oper}' '{ope2}'='{res}")
+    print(f"{ope1} {oper} {ope2}={res}")
 
-# Call the main function to run the program
-main()
 
 
