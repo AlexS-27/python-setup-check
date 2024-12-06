@@ -1,56 +1,56 @@
-
+from src.MathRequest import MathRequest
 
 def main():
-    ask_user_input()
-    global result
-    result = calculate(operand1, operator, operand2)
-    display_result(operand1, operator, operand2, result)
+    math_request = ask_user_input()
+    math_request.set_res(calculate(math_request))
+    display_result(math_request)
 
-def ask_user_input():
-
-    global operand1
+def ask_user_input() -> MathRequest:
     # Get first operand from the user
-    operand1 = float(input("Enter the first operand: "))
+    ope1 = ask_user_float_input("Enter the first operand: ")
 
-    global operator
     # Get the operator from the user
-    operator = input("Enter an operator (+, -, *, /): ")
+    oper = input("Enter an operator (+, -, *, /, ^): ")
 
-    global operand2
     # Get second operand from the user
-    operand2 = float(input("Enter the second operand: "))
+    ope2 = ask_user_float_input("Enter the second operand: ")
 
-    return operand1, operator, operand2
+    return MathRequest(ope1, oper, ope2)
 
-def calculate(ope1, oper, ope2):
+def ask_user_float_input(msg):
+    return float(input(msg))
+
+def calculate(math_request):
     # Perform the operation based on the operator
-    res = None
-    match operator:
+    ope1 = math_request.get_ope1()
+    oper = math_request.get_oper()
+    ope2 = math_request.get_ope2()
+
+    match oper:
         case '+':
-            res = (operand1 + operand2)
-
+            res = ope1 + ope2
         case '-':
-            res = (operand1 - operand2)
-
+            res = ope1 - ope2
         case '*':
-            res = (operand1 * operand2)
-
+            res = ope1 * ope2
         case '/':
             if ope2 == 0:
                 print("Error: Division by zero is undefined.")
                 return
-            res = (ope1 / ope2)
-
+            res = ope1 / ope2
+        case '^':
+            res = 1
+            for count in range(int(ope1)):
+                res = res * ope2
         case _:
-            print("Error: Operator '{}' not recognized.".format(operator))
+            print("Invalid operator.")
             return
-
     return res
 
-def display_result(ope1, oper, ope2, res):
-    print(f"{ope1}' '{oper}' '{ope2}'='{res}")
+def display_result(math_request):
+    # Print the result
+        print(math_request.to_string())
+
 
 # Call the main function to run the program
 main()
-
-
