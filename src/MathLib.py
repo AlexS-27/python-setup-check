@@ -18,7 +18,7 @@ class MathLib:
             case '+':
                 self.res = ope1 + ope2
             case '-':
-                res = ope1 - ope2
+                self.res = ope1 - ope2
             case '*':
                 self.res = ope1 * ope2
             case '/':
@@ -38,7 +38,7 @@ class MathLib:
 
         while self.math_request.oper not in valid_operators:
             print("Invalid operator. Please enter one of: +,-,*,/,^")
-            new_oper = self.math_request.get_operator()
+            new_oper = self.math_request.get_oper()
 
             if new_oper.lower() == "exit":
                 print("Exiting...")
