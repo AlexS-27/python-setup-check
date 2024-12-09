@@ -52,18 +52,17 @@ class TestMathLib(unittest.TestCase):
 
     def test_execute_pow_get_result(self):
         # given
-        mathrequest = MathRequest(3, '^', 81)
-        math_lib = MathLib(mathrequest)
+        math_request = MathRequest(3, '^', 2)
 
         # when
-        MathLib.calculate(mathrequest)
+        MathLib.calculate(math_request)
 
         # then
-        self.assertEqual(mathrequest.get_res(), )
+        self.assertEqual(math_request.res, 9)
 
     def test_execute_root_get_result(self):
         # given
-        mathrequest = MathRequest(3, '**', 4)
+        mathrequest = MathRequest(3, '~', 4)
         math_lib = MathLib(mathrequest)
 
         # when

@@ -35,6 +35,10 @@ class MathLib:
         if oper == '/' and ope2 == 0:
             print("error it's not possible to divide by zero")
 
+        if oper == '^':
+            res = ope1 ** ope2
+            math_request.set_res(res)
+
 
 
 
