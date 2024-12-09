@@ -42,8 +42,13 @@ class MathLib:
                 math_request.set_res(res)
 
             case '~':
-                res = self.racine_calcul(ope1, ope2)
-                math_request.set_res(res)
+                if ope2 == 0:
+                    raise ValueError("L'indice de la racine (ope2) ne peut pas être zéro.")
+                elif ope1 < 0 and ope2 % 2 == 0:
+                    raise ValueError("Impossible de calculer une racine paire d'un nombre négatif.")
+                else:
+                    res = round(ope1 ** (1 / ope2),2)
+                    math_request.set_res(res)
 
             case _:
                 print("Error: Operator '{}' not recognized.".format(oper))
@@ -69,11 +74,3 @@ class MathLib:
 
         return True
 
-
-
-    def racine_calcul(self, ope1, ope2):
-        if ope2 == 0:
-            raise ValueError("L'indice de la racine (ope2) ne peut pas être zéro.")
-        if ope1 < 0 and ope2 % 2 == 0:
-            raise ValueError("Impossible de calculer une racine paire d'un nombre négatif.")
-        return ope1 ** (1 / ope2)
