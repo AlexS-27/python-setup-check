@@ -1,4 +1,5 @@
 from src.Math_Request import MathRequest
+import math
 
 class MathLib:
 
@@ -16,29 +17,39 @@ class MathLib:
         oper = math_request.get_oper()
         ope2 = math_request.get_ope2()
 
-        if oper == '+':
-            res = ope1 + ope2
-            math_request.set_res(res)
+        match oper:
+            case '+':
+                res = ope1 + ope2
+                math_request.set_res(res)
 
-        if oper == '-':
-            res = ope1 - ope2
-            math_request.set_res(res)
+            case '-':
+                res = ope1 - ope2
+                math_request.set_res(res)
 
-        if oper == '*':
-            res = ope1 * ope2
-            math_request.set_res(res)
+            case '*':
+                res = ope1 * ope2
+                math_request.set_res(res)
 
-        if oper == '/' and ope2 != 0:
-            res = ope1 / ope2
-            math_request.set_res(res)
+            case '/':
+                if ope2 == 0:
+                    print("error it's not possible to divide by zero")
+                    return
+                res = ope1 / ope2
+                math_request.set_res(res)
 
-        if oper == '/' and ope2 == 0:
-            print("error it's not possible to divide by zero")
+            case '^':
+                res = ope1 ** ope2
+                math_request.set_res(res)
 
-        if oper == '^':
-            res = ope1 ** ope2
-            math_request.set_res(res)
+            case '~':
+                res = self.racine_calcul(ope1, ope2)
+                math_request.set_res(res)
 
+            case _:
+                print("Error: Operator '{}' not recognized.".format(oper))
+                return
+
+        return math_request.set_res(res)
 
 
 
@@ -58,5 +69,11 @@ class MathLib:
 
         return True
 
-    def get_res(self):
-        return self.res
+
+
+    def racine_calcul(self, ope1, ope2):
+        if ope2 == 0:
+            raise ValueError("L'indice de la racine (ope2) ne peut pas être zéro.")
+        if ope1 < 0 and ope2 % 2 == 0:
+            raise ValueError("Impossible de calculer une racine paire d'un nombre négatif.")
+        return ope1 ** (1 / ope2)
