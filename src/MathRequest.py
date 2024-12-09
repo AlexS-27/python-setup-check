@@ -18,7 +18,7 @@ class MathRequest:
         return self.ope2
 
     def get_res(self,mathlib):
-        res= self.mathLib.res
+        res= MathLib.res
         return res
 
     def to_string(self):

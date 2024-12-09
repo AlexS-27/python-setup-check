@@ -10,8 +10,7 @@ class TestMathRequest(unittest.TestCase):
         self.ope2 = 5
         self.res = 8
         self.mathRequest = MathRequest(self.ope1, self.oper, self.ope2, self.res)
-        self.mathLib = MathLib(self.res)
-        self.mathLib.verification_oper()
+
 
     def test_get_ope(self):
         self.assertEqual(self.mathRequest.get_ope1(), self.ope1)
