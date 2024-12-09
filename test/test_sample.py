@@ -1,6 +1,6 @@
 import unittest
-from src.MathRequest import MathRequest
-from src.MathLib import MathLib
+from src.Math_Request import MathRequest
+
 
 class TestMathRequest(unittest.TestCase):
 
