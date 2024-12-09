@@ -32,14 +32,13 @@ class TestMathLib(unittest.TestCase):
 
     def test_execute_mul_get_result(self):
         # given
-        mathrequest = MathRequest(3, '*', 4)
-        math_lib = MathLib(mathrequest)
+        math_request = MathRequest(3, '*', 4)
 
         # when
-        MathLib.calculate(mathrequest)
+        MathLib.calculate(math_request)
 
         # then
-        self.assertEqual(mathrequest.get_res(), 12)
+        self.assertEqual(math_request.res, 12)
 
     def test_execute_div_get_result(self):
         # given
