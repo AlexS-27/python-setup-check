@@ -22,6 +22,7 @@ class MathLib:
 
         if oper == '-':
             res = ope1 - ope2
+            math_request.set_res(res)
 
 
 
