@@ -28,6 +28,14 @@ class MathLib:
             res = ope1 * ope2
             math_request.set_res(res)
 
+        if oper == '/' and ope2 != 0:
+            res = ope1 / ope2
+            math_request.set_res(res)
+
+        if oper == '/' and ope2 == 0:
+            print("error it's not possible to divide by zero")
+
+
 
 
 
@@ -36,7 +44,7 @@ class MathLib:
 
         while self.math_request.oper not in valid_operators:
             print("Invalid operator. Please enter one of: +,-,*,/,^")
-            new_oper = self.math_request.get_oper()
+            new_oper = self.math_request.oper()
 
             if new_oper.lower() == "exit":
                 print("Exiting...")
