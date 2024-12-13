@@ -18,8 +18,12 @@ def ask_user_input() -> MathRequest:
 
     return MathRequest(ope1, oper, ope2)
 
-def ask_user_float_input(msg):
-    return float(input(msg))
+def ask_user_float_input(msg: str) -> float:
+    while True:
+        try:
+            return float(input(msg))
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
 
 def display_result(math_request):
     # Print the result
