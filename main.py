@@ -10,7 +10,7 @@ def ask_user_input() -> MathRequest:
     ope1 = ask_user_float_input("Enter the first operand: ")
 
     # Get the operator from the user
-    oper = input("Enter an operator (+, -, *, /, ^): ")
+    oper = input("Enter an operator (add, sub, mul, div, paw, root): ")
 
     # Get second operand from the user
     ope2 = ask_user_float_input("Enter the second operand: ")

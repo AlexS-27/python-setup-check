@@ -18,30 +18,30 @@ class MathLib:
         ope2 = math_request.get_ope2()
 
         match oper:
-            case '+':
+            case 'add':
                 res = ope1 + ope2
                 math_request.set_res(res)
 
-            case '-':
+            case 'sub':
                 res = ope1 - ope2
                 math_request.set_res(res)
 
-            case '*':
+            case 'mul':
                 res = ope1 * ope2
                 math_request.set_res(res)
 
-            case '/':
+            case 'div':
                 if ope2 == 0:
                     print("error it's not possible to divide by zero")
                     return
                 res = ope1 / ope2
                 math_request.set_res(res)
 
-            case '^':
+            case 'paw':
                 res = ope1 ** ope2
                 math_request.set_res(res)
 
-            case '~':
+            case 'root':
                 if ope2 == 0:
                     raise ValueError("L'indice de la racine (ope2) ne peut pas être zéro.")
                 elif ope1 < 0 and ope2 % 2 == 0:

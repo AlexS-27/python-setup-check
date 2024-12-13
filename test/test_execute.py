@@ -11,7 +11,7 @@ class TestMathLib(unittest.TestCase):
 
     def test_execute_add_get_result(self):
         #given
-        math_request = MathRequest(3, '+', 4)
+        math_request = MathRequest(3, 'add', 4)
 
         #when
         MathLib.calculate(math_request)
@@ -21,7 +21,7 @@ class TestMathLib(unittest.TestCase):
 
     def test_execute_sub_get_result(self):
         # given
-        math_request = MathRequest(3, '-', 4)
+        math_request = MathRequest(3, 'sub', 4)
 
 
         # when
@@ -32,7 +32,7 @@ class TestMathLib(unittest.TestCase):
 
     def test_execute_mul_get_result(self):
         # given
-        math_request = MathRequest(3, '*', 4)
+        math_request = MathRequest(3, 'mul', 4)
 
         # when
         MathLib.calculate(math_request)
@@ -42,7 +42,7 @@ class TestMathLib(unittest.TestCase):
 
     def test_execute_div_get_result(self):
         # given
-        math_request = MathRequest(3, '/', 4)
+        math_request = MathRequest(3, 'div', 4)
 
         # when
         MathLib.calculate(math_request)
@@ -52,7 +52,7 @@ class TestMathLib(unittest.TestCase):
 
     def test_execute_pow_get_result(self):
         # given
-        math_request = MathRequest(3, '^', 2)
+        math_request = MathRequest(3, 'paw', 2)
 
         # when
         MathLib.calculate(math_request)
@@ -62,7 +62,7 @@ class TestMathLib(unittest.TestCase):
 
     def test_execute_root_get_result(self):
         # given
-        math_request = MathRequest(3, '~', 4)
+        math_request = MathRequest(3, 'root', 4)
 
         # when
         MathLib.calculate(math_request)
