@@ -11,7 +11,7 @@ class MathLib:
         self.res = res
 
     @classmethod
-    def calculate(self, math_request):
+    def execute(self, math_request):
         # Perform the operation based on the operator
         ope1 = math_request.get_ope1()
         oper = math_request.get_oper()
@@ -55,22 +55,3 @@ class MathLib:
                 return
 
         return math_request.set_res(res)
-
-
-
-
-    def verification_oper(self):
-        valid_operators = ['+', '-', '*', '/', '^']
-
-        while self.math_request.oper not in valid_operators:
-            print("Invalid operator. Please enter one of: +,-,*,/,^")
-            new_oper = self.math_request.oper()
-
-            if new_oper.lower() == "exit":
-                print("Exiting...")
-                return False
-
-            self.math_request.oper = new_oper
-
-        return True
-

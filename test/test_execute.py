@@ -23,7 +23,6 @@ class TestMathLib(unittest.TestCase):
         # given
         math_request = MathRequest(3, 'sub', 4)
 
-
         # when
         MathLib.calculate(math_request)
 

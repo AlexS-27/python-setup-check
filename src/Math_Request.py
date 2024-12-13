@@ -19,5 +19,21 @@ class MathRequest:
         self.res = value
 
     def to_string(self):
-        return f"{self.ope1} {self.oper} {self.ope2} {self.res}"
+        return f"{self.ope1} {self.oper} {self.ope2} = {self.res}"
 
+    @classmethod
+    def verification_oper(self):
+        valid_operators = ['add', 'sub', 'mul', 'div', 'paw', 'root']
+
+        while True:
+            oper = input("Enter an operator (add, sub, mul, div, paw, root): ").strip()
+
+            if oper.lower() in valid_operators:
+                return oper
+
+            elif oper.lower() == "exit":
+                print("Exiting...")
+                return False
+
+            else:
+                print("Invalid operator. Please enter one of: add,sub,mul,div,paw,root")
